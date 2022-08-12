@@ -1,6 +1,7 @@
 package com.endava.tmd.dap.entity;
 
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +27,13 @@ public class Team {
 
     public void addUser(User user){
         usersList.add(user);
+    }
+
+    public List<User> listOfUsers(){
+        return usersList;
+    }
+
+    public void removeUser(User user){
+        usersList.remove(user);
     }
 }

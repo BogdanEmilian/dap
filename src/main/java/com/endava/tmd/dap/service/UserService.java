@@ -2,8 +2,10 @@ package com.endava.tmd.dap.service;
 
 import com.endava.tmd.dap.entity.User;
 import com.endava.tmd.dap.repo.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +21,28 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void addUser(final User user){
+    public void addUser(final User user)
+    {
         LOGGER.info("Creating user: " + user);
+
+        userRepository.save(user);
     }
 
-    public List<User> findAllUsers(){
+    public List<User> findAllUsers()
+    {
         LOGGER.info("Finding all users...");
+
         final List<User> users = new ArrayList<User>();
+
         userRepository.findAll().forEach(user -> users.add(user));
+
         return users;
     }
 
-    public User findUser(final int id){
-        LOGGER.info("Finding user by id: " + id);
+    public User findUser(final int id)
+    {
         Optional<User> user = userRepository.findById(id);
+
         if(user.isPresent())
         {
             return user.get();
@@ -43,13 +53,17 @@ public class UserService {
         }
     }
 
-    public void updateUser(final User user){
+    public void updateUser(final User user)
+    {
         LOGGER.info("Updating user: " + user);
+
         userRepository.save(user);
     }
 
-    public void deleteUser(final int id){
+    public void deleteUser(final int id)
+    {
         LOGGER.info("Deleting user with id: " + id);
+
         userRepository.deleteById(id);
     }
 

@@ -2,7 +2,6 @@ package com.endava.tmd.dap.entity;
 
 import com.endava.tmd.dap.enumeration.Label;
 import com.endava.tmd.dap.enumeration.Priority;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -15,19 +14,12 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String title;
-
     private String description;
-
     private Calendar dueDate;
-
     private Calendar createdDate;
-
     private Label status;
-
     private Priority priority;
-
 
     public Task(){
     }
@@ -40,7 +32,6 @@ public class Task {
         this.status = status;
         this.priority = priority;
     }
-
 
     public String getTitle() {
         return title;

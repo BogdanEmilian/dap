@@ -8,7 +8,8 @@ public class DapApplication {
 
 	public static void main(String[] args) {
 
-		try{
+		try
+		{
 			SpringApplication.run(DapApplication.class, args);
 		}catch (Exception e){
 			e.printStackTrace();
